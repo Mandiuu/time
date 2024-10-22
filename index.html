@@ -27,8 +27,22 @@
         <div id="search-box-container"></div>
         <ul id="suggestions"></ul>
     </div>
+    <div class="spacer"></div>
     
-    <script src="scripts.js"></script>
+    <div class="compare-timezones">
+        <h2>Or look for a specific time in the world</h2>
+        <div class="comparison-container">
+            <label>If it is</label>
+            <input type="time" id="time-input" required>
+            <label>in</label>
+            <div id="geocoder1" class="geocoder"></div>
+            <label>what time is it in</label>
+            <div id="geocoder2" class="geocoder"></div>?
+        </div>
+        <button id="compare-button">Compare Time Zones</button>
+        <p id="result" class="result"></p>
+    </div>
+
 
     <div class="footer">
         <div class="content">
@@ -36,5 +50,7 @@
                 </p>
         </div>
     </div>
+    <script src="scripts.js"></script>
+
 </body>
 </html>

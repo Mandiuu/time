@@ -9,7 +9,7 @@ body {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    height: 100vh;
+    min-height: 100vh;
 }
 
 /* Title and subtitle styling */
@@ -35,28 +35,32 @@ h2 {
     background-color: #1a1a1a; /* Dark gray background for contrast */
     border-radius: 8px;
     padding: 30px 20px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 50px; /* Add space below the first section */
 }
 
+/* Search bar styling */
 #search-box-container .mapboxgl-ctrl-geocoder {
     margin-bottom: 20px;
     border-radius: 5px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Subtle shadow */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 }
 
 /* Placeholder styling */
-#search-box-container .mapboxgl-ctrl-geocoder--input {
-    padding: 10px 10px 10px 30px; /* Add left padding to make space for the icon */
+#search-box-container .mapboxgl-ctrl-geocoder--input,
+.comparison-container .mapboxgl-ctrl-geocoder--input {
+    padding: 10px 10px 10px 30px;
     font-size: 16px;
-    color: #ffffff; /* White text for input */
-    background-color: #333333; /* Dark background for input */
+    color: #ffffff !important;
+    background-color: #333333; /* Gray background for all input fields */
     border: none;
     border-radius: 5px;
 }
 
 /* Adjust the magnifying glass icon position */
-#search-box-container .mapboxgl-ctrl-geocoder--icon-search {
-    left: 10px; /* Position it away from the left edge */
+#search-box-container .mapboxgl-ctrl-geocoder--icon-search,
+.comparison-container .mapboxgl-ctrl-geocoder--icon-search {
+    left: 10px;
 }
 
 /* Results list styling */
@@ -69,48 +73,42 @@ h2 {
     overflow-y: auto;
     background-color: #2e2e2e; /* Dark gray background for suggestions */
     border-radius: 5px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 /* List item styling */
 #suggestions li {
     padding: 10px 15px;
-    border-bottom: 1px solid #444444; /* Slightly lighter gray border */
+    border-bottom: 1px solid #444444;
     cursor: pointer;
-    color: #ffffff; /* White text for list items */
+    color: #ffffff;
     transition: background-color 0.3s;
 }
 
 /* Hover effect for list items */
 #suggestions li:hover {
-    background-color: #444444; /* Slightly lighter background on hover */
+    background-color: #444444;
 }
 
-/* Make last list item have no border */
-#suggestions li:last-child {
-    border-bottom: none;
-}
-
+/* Footer styling */
 .footer {
-    color: #ffffff; /* White text color */
+    color: #ffffff;
     text-align: center;
-    font-size: 0.8em; /* Slightly larger font size for readability */
-    margin-top: 4em;
-    padding: 2em 0; /* Reduced padding for a sleeker look */
-    margin-top: auto; /* Pushes footer to the bottom when content is short */
-
+    font-size: 0.8em;
+    padding: 2em 0;
+    margin-top: auto;
 }
 
 /* Styling for footer links */
 .footer a {
-    color: #ffcc00; /* Highlight color for links */
+    color: #ffcc00;
     text-decoration: none;
     font-weight: bold;
     transition: color 0.3s;
 }
 
 .footer a:hover {
-    color: #ffffff; /* Change to white on hover for effect */
+    color: #ffffff;
 }
 
 /* Optional: Small fade-in animation */
@@ -118,6 +116,7 @@ h2 {
     animation: fadeIn 1s ease-in-out;
 }
 
+/* Keyframes for animations */
 @keyframes fadeIn {
     from {
         opacity: 0;
@@ -127,6 +126,67 @@ h2 {
     }
 }
 
+/* Flex container for the comparison section */
+.compare-timezones {
+    text-align: center;
+    margin-top: 3em; /* Increase margin for more space between sections */
+}
+
+/* Alignment for inputs and geocoders in comparison container */
+.comparison-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin-bottom: 20px;
+}
+
+/* Styling for the time input and geocoder */
+.comparison-container input[type="time"],
+.comparison-container .mapboxgl-ctrl-geocoder {
+    flex: 1;
+    max-width: 200px;
+    min-width: 150px;
+    background-color: #333333;
+    color: #ffffff;
+    border: none;
+    border-radius: 5px;
+    padding: 10px;
+    font-size: 16px;
+}
+
+/* Style for the compare button */
+#compare-button {
+    background-color: #ffcc00;
+    color: #000;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 1em;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+/* Set consistent dimensions */
+.comparison-container input[type="time"],
+.comparison-container .mapboxgl-ctrl-geocoder {
+    width: 190px;
+    height: 40px;
+    max-width: 100%;
+}
+
+/* Ensure the inner input of the Mapbox Geocoder follows set dimensions */
+.comparison-container .mapboxgl-ctrl-geocoder--input {
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+}
+
+/* Adjust padding for consistent alignment */
+.comparison-container input[type="time"] {
+    padding: 0 10px;
+}
 
 /* Responsive Design */
 @media (max-width: 600px) {
@@ -141,4 +201,39 @@ h2 {
     h2 {
         font-size: 1em;
     }
+
+    .footer {
+        font-size: 0.9em;
+    }
+
+    .comparison-container {
+        flex-direction: column;
+    }
+
+    .comparison-container input,
+    #compare-button {
+        width: 100%;
+    }
+
+    #compare-button {
+        padding: 8px 16px; /* Smaller padding for mobile */
+        font-size: 0.9em; /* Slightly smaller font size for mobile */
+    }
+
+    /* Ensure the Mapbox geocoder suggestions list is above other elements */
+    .mapboxgl-ctrl-geocoder {
+        position: relative;
+        z-index: 10; /* Set z-index for geocoder to ensure it's above other elements */
+    }
+
+    .mapboxgl-ctrl-geocoder .suggestions {
+        position: absolute;
+        z-index: 20; /* Higher than the geocoder to ensure visibility */
+        background-color: #2e2e2e; /* Match existing dropdown background */
+        width: 100%; /* Full width of the input */
+        box-sizing: border-box; /* Higher z-index for suggestions to ensure they appear above other elements */
+    }
+    .comparison-container div {
+        margin-bottom: 10px;
+}
 }
