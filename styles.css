@@ -1,0 +1,144 @@
+/* General styles */
+body {
+    background-color: #000000; /* Black background */
+    color: #ffffff; /* White text color for better contrast */
+    font-family: 'Montserrat', sans-serif; /* Modern, clean font */
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+
+/* Title and subtitle styling */
+h1 {
+    font-size: 2.5em;
+    margin-bottom: 10px;
+    color: #ffffff;
+    text-align: center;
+}
+
+h2 {
+    font-size: 1.2em;
+    margin-bottom: 20px;
+    color: #cccccc;
+    text-align: center;
+}
+
+/* Container styling */
+.container {
+    max-width: 600px;
+    width: 90%;
+    text-align: center;
+    background-color: #1a1a1a; /* Dark gray background for contrast */
+    border-radius: 8px;
+    padding: 30px 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+}
+
+#search-box-container .mapboxgl-ctrl-geocoder {
+    margin-bottom: 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Subtle shadow */
+}
+
+/* Placeholder styling */
+#search-box-container .mapboxgl-ctrl-geocoder--input {
+    padding: 10px 10px 10px 30px; /* Add left padding to make space for the icon */
+    font-size: 16px;
+    color: #ffffff; /* White text for input */
+    background-color: #333333; /* Dark background for input */
+    border: none;
+    border-radius: 5px;
+}
+
+/* Adjust the magnifying glass icon position */
+#search-box-container .mapboxgl-ctrl-geocoder--icon-search {
+    left: 10px; /* Position it away from the left edge */
+}
+
+/* Results list styling */
+#suggestions {
+    list-style: none;
+    padding: 0;
+    margin: 20px 0 0;
+    text-align: left;
+    max-height: 200px;
+    overflow-y: auto;
+    background-color: #2e2e2e; /* Dark gray background for suggestions */
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+}
+
+/* List item styling */
+#suggestions li {
+    padding: 10px 15px;
+    border-bottom: 1px solid #444444; /* Slightly lighter gray border */
+    cursor: pointer;
+    color: #ffffff; /* White text for list items */
+    transition: background-color 0.3s;
+}
+
+/* Hover effect for list items */
+#suggestions li:hover {
+    background-color: #444444; /* Slightly lighter background on hover */
+}
+
+/* Make last list item have no border */
+#suggestions li:last-child {
+    border-bottom: none;
+}
+
+.footer {
+    color: #ffffff; /* White text color */
+    text-align: center;
+    font-size: 0.9em; /* Slightly larger font size for readability */
+    margin-top: 4em;
+    padding: 2em 0; /* Reduced padding for a sleeker look */
+    margin-top: auto; /* Pushes footer to the bottom when content is short */
+
+}
+
+/* Styling for footer links */
+.footer a {
+    color: #ffcc00; /* Highlight color for links */
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s;
+}
+
+.footer a:hover {
+    color: #ffffff; /* Change to white on hover for effect */
+}
+
+/* Optional: Small fade-in animation */
+.footer {
+    animation: fadeIn 1s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+
+/* Responsive Design */
+@media (max-width: 600px) {
+    .container {
+        padding: 20px 10px;
+    }
+
+    h1 {
+        font-size: 2em;
+    }
+
+    h2 {
+        font-size: 1em;
+    }
+}
