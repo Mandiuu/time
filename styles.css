@@ -94,7 +94,7 @@ h2 {
 .footer {
     color: #ffffff; /* White text color */
     text-align: center;
-    font-size: 0.7em; /* Slightly larger font size for readability */
+    font-size: 0.8em; /* Slightly larger font size for readability */
     margin-top: 4em;
     padding: 2em 0; /* Reduced padding for a sleeker look */
     margin-top: auto; /* Pushes footer to the bottom when content is short */
