@@ -1,0 +1,239 @@
+/* General styles */
+body {
+    background-color: #000000; /* Black background */
+    color: #ffffff; /* White text color for better contrast */
+    font-family: 'Montserrat', sans-serif; /* Modern, clean font */
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+}
+
+/* Title and subtitle styling */
+h1 {
+    font-size: 2.5em;
+    margin-bottom: 10px;
+    color: #ffffff;
+    text-align: center;
+}
+
+h2 {
+    font-size: 1.2em;
+    margin-bottom: 20px;
+    color: #cccccc;
+    text-align: center;
+}
+
+/* Container styling */
+.container {
+    max-width: 600px;
+    width: 90%;
+    text-align: center;
+    background-color: #1a1a1a; /* Dark gray background for contrast */
+    border-radius: 8px;
+    padding: 30px 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 50px; /* Add space below the first section */
+}
+
+/* Search bar styling */
+#search-box-container .mapboxgl-ctrl-geocoder {
+    margin-bottom: 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+/* Placeholder styling */
+#search-box-container .mapboxgl-ctrl-geocoder--input,
+.comparison-container .mapboxgl-ctrl-geocoder--input {
+    padding: 10px 10px 10px 30px;
+    font-size: 16px;
+    color: #ffffff !important;
+    background-color: #333333; /* Gray background for all input fields */
+    border: none;
+    border-radius: 5px;
+}
+
+/* Adjust the magnifying glass icon position */
+#search-box-container .mapboxgl-ctrl-geocoder--icon-search,
+.comparison-container .mapboxgl-ctrl-geocoder--icon-search {
+    left: 10px;
+}
+
+/* Results list styling */
+#suggestions {
+    list-style: none;
+    padding: 0;
+    margin: 20px 0 0;
+    text-align: left;
+    max-height: 200px;
+    overflow-y: auto;
+    background-color: #2e2e2e; /* Dark gray background for suggestions */
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* List item styling */
+#suggestions li {
+    padding: 10px 15px;
+    border-bottom: 1px solid #444444;
+    cursor: pointer;
+    color: #ffffff;
+    transition: background-color 0.3s;
+}
+
+/* Hover effect for list items */
+#suggestions li:hover {
+    background-color: #444444;
+}
+
+/* Footer styling */
+.footer {
+    color: #ffffff;
+    text-align: center;
+    font-size: 0.8em;
+    padding: 2em 0;
+    margin-top: auto;
+}
+
+/* Styling for footer links */
+.footer a {
+    color: #ffcc00;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s;
+}
+
+.footer a:hover {
+    color: #ffffff;
+}
+
+/* Optional: Small fade-in animation */
+.footer {
+    animation: fadeIn 1s ease-in-out;
+}
+
+/* Keyframes for animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+/* Flex container for the comparison section */
+.compare-timezones {
+    text-align: center;
+    margin-top: 3em; /* Increase margin for more space between sections */
+}
+
+/* Alignment for inputs and geocoders in comparison container */
+.comparison-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin-bottom: 20px;
+}
+
+/* Styling for the time input and geocoder */
+.comparison-container input[type="time"],
+.comparison-container .mapboxgl-ctrl-geocoder {
+    flex: 1;
+    max-width: 200px;
+    min-width: 150px;
+    background-color: #333333;
+    color: #ffffff;
+    border: none;
+    border-radius: 5px;
+    padding: 10px;
+    font-size: 16px;
+}
+
+/* Style for the compare button */
+#compare-button {
+    background-color: #ffcc00;
+    color: #000;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 1em;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+/* Set consistent dimensions */
+.comparison-container input[type="time"],
+.comparison-container .mapboxgl-ctrl-geocoder {
+    width: 190px;
+    height: 40px;
+    max-width: 100%;
+}
+
+/* Ensure the inner input of the Mapbox Geocoder follows set dimensions */
+.comparison-container .mapboxgl-ctrl-geocoder--input {
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+}
+
+/* Adjust padding for consistent alignment */
+.comparison-container input[type="time"] {
+    padding: 0 10px;
+}
+
+/* Responsive Design */
+@media (max-width: 600px) {
+    .container {
+        padding: 20px 10px;
+    }
+
+    h1 {
+        font-size: 2em;
+    }
+
+    h2 {
+        font-size: 1em;
+    }
+
+    .footer {
+        font-size: 0.9em;
+    }
+
+    .comparison-container {
+        flex-direction: column;
+    }
+
+    .comparison-container input,
+    #compare-button {
+        width: 100%;
+    }
+
+    #compare-button {
+        padding: 8px 16px; /* Smaller padding for mobile */
+        font-size: 0.9em; /* Slightly smaller font size for mobile */
+    }
+
+    /* Ensure the Mapbox geocoder suggestions list is above other elements */
+    .mapboxgl-ctrl-geocoder {
+        position: relative;
+        z-index: 10; /* Set z-index for geocoder to ensure it's above other elements */
+    }
+
+    .mapboxgl-ctrl-geocoder .suggestions {
+        position: absolute;
+        z-index: 20; /* Higher than the geocoder to ensure visibility */
+        background-color: #2e2e2e; /* Match existing dropdown background */
+        width: 100%; /* Full width of the input */
+        box-sizing: border-box; /* Higher z-index for suggestions to ensure they appear above other elements */
+    }
+    .comparison-container div {
+        margin-bottom: 10px;
+}
+}

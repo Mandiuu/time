@@ -1,0 +1,13 @@
+{
+	"folders": [
+		{
+			"path": "../time"
+		},
+		{
+			"path": "."
+		}
+	],
+	"settings": {
+		"liveServer.settings.multiRootWorkspaceName": "public"
+	}
+}
