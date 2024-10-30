@@ -211,7 +211,7 @@ h2 {
 
     .comparison-container input,
     #compare-button {
-        width: 50%;
+        width: 58%;
     }
 
     #compare-button {
@@ -227,5 +227,14 @@ h2 {
 
     .comparison-container div {
         margin-bottom: 10px;
+    }
+    @media (max-width: 600px) {
+        .result {
+            max-width: 300px; /* Set the desired width for mobile */
+            margin: 0 auto; /* Center it within the parent container */
+            text-align: center; /* Center the text inside */
+            padding: 10px; /* Add padding for spacing */
+            border-radius: 5px; /* Optional: Rounded corners */
+        }
     }
 }
