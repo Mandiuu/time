@@ -144,7 +144,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
                 // Calculate the new hours and minutes in 24-hour format
                 const newHours24 = Math.floor((totalMinutes + 1440) % 1440 / 60);
-                const newMinutes = Math.floor(totalMinutes % 60);
+                const newMinutes = ((totalMinutes % 60) + 60) % 60;
 
                 const originalHours = hours % 12 || 12;
                 const originalPeriod = hours >= 12 ? 'PM' : 'AM';
