@@ -148,7 +148,15 @@ document.addEventListener('DOMContentLoaded', () => {
                 const period = newHours24 >= 12 ? 'PM' : 'AM';
                 const timeFormatted = `${newHours.toString().padStart(2, '0')}:${minutes.toString().padStart(2, '0')} ${period}`;
 
-                document.getElementById('result').textContent = `If it is ${originalTimeFormatted} in ${city1}, it is ${timeFormatted} in ${city2}.`;
+                // Determine if the time shifts to "yesterday" or "tomorrow"
+                let dayShift = '';
+                if (offsetDifference > 0 && newHours24 < hours) {
+                    dayShift = ' (tomorrow)';
+                } else if (offsetDifference < 0 && newHours24 > hours) {
+                    dayShift = ' (yesterday)';
+                }
+
+                document.getElementById('result').textContent = `If it is ${originalTimeFormatted} in ${city1}, it is ${timeFormatted} in ${city2}${dayShift}.`;
             } catch (error) {
                 console.error('Error comparing time zones:', error);
                 document.getElementById('result').textContent = 'An error occurred while comparing time zones.';
