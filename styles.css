@@ -1,4 +1,3 @@
-/* General styles */
 body {
     background-color: #000000; /* Black background */
     color: #ffffff; /* White text color for better contrast */
@@ -212,7 +211,7 @@ h2 {
 
     .comparison-container input,
     #compare-button {
-        width: 100%;
+        width: 50%;
     }
 
     #compare-button {
@@ -220,20 +219,13 @@ h2 {
         font-size: 0.9em; /* Slightly smaller font size for mobile */
     }
 
-    /* Ensure the Mapbox geocoder suggestions list is above other elements */
-    .mapboxgl-ctrl-geocoder {
-        position: relative;
-        z-index: 10; /* Set z-index for geocoder to ensure it's above other elements */
+    /* Ensure the Mapbox geocoder input text is white and background is dark on mobile */
+    .mapboxgl-ctrl-geocoder--input {
+        color: #ffffff !important; /* White text color */
+        background-color: #333333 !important; /* Dark background color */
     }
 
-    .mapboxgl-ctrl-geocoder .suggestions {
-        position: absolute;
-        z-index: 20; /* Higher than the geocoder to ensure visibility */
-        background-color: #2e2e2e; /* Match existing dropdown background */
-        width: 100%; /* Full width of the input */
-        box-sizing: border-box; /* Higher z-index for suggestions to ensure they appear above other elements */
-    }
     .comparison-container div {
         margin-bottom: 10px;
-}
+    }
 }
