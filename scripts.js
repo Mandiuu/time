@@ -157,9 +157,9 @@ document.addEventListener('DOMContentLoaded', () => {
                 // Determine if the time shifts to "yesterday" or "tomorrow"
                 let dayShift = '';
                 if (totalMinutes >= 1440) {
-                    dayShift = ' (tomorrow)';
+                    dayShift = ' (next day)';
                 } else if (totalMinutes < 0) {
-                    dayShift = ' (yesterday)';
+                    dayShift = ' (previous day)';
                 }
 
                 document.getElementById('result').textContent = `If it is ${originalTimeFormatted} in ${city1}, it is ${timeFormatted} in ${city2}${dayShift}.`;
