@@ -137,8 +137,14 @@ document.addEventListener('DOMContentLoaded', () => {
                     return;
                 }
 
-                const offsetDifference = timezone2.offset - timezone1.offset;
-                const newHours24 = (hours + offsetDifference + 24) % 24;
+                // Calculate the offset difference in minutes
+                const offsetDifferenceMinutes = (timezone2.offset - timezone1.offset) * 60;
+                const originalTotalMinutes = hours * 60 + minutes;
+                const totalMinutes = originalTotalMinutes + offsetDifferenceMinutes;
+
+                // Calculate the new hours and minutes in 24-hour format
+                const newHours24 = Math.floor((totalMinutes + 1440) % 1440 / 60);
+                const newMinutes = Math.floor(totalMinutes % 60);
 
                 const originalHours = hours % 12 || 12;
                 const originalPeriod = hours >= 12 ? 'PM' : 'AM';
@@ -146,13 +152,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
                 const newHours = newHours24 % 12 || 12;
                 const period = newHours24 >= 12 ? 'PM' : 'AM';
-                const timeFormatted = `${newHours.toString().padStart(2, '0')}:${minutes.toString().padStart(2, '0')} ${period}`;
+                const timeFormatted = `${newHours.toString().padStart(2, '0')}:${newMinutes.toString().padStart(2, '0')} ${period}`;
 
                 // Determine if the time shifts to "yesterday" or "tomorrow"
                 let dayShift = '';
-                if (offsetDifference > 0 && newHours24 < hours) {
+                if (totalMinutes >= 1440) {
                     dayShift = ' (tomorrow)';
-                } else if (offsetDifference < 0 && newHours24 > hours) {
+                } else if (totalMinutes < 0) {
                     dayShift = ' (yesterday)';
                 }
 
